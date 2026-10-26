@@ -49,10 +49,11 @@ Cornixはno-SoftDevice配置（アプリ開始 `0x1000`）です。これらのU
 
 保存済み `cornix.vil` の10レイヤーを移植しています。詳しくは [KEYMAP.md](KEYMAP.md) を参照してください。
 
+- 左上：Esc、右上：Tab（元の配列から入れ替え）
 - 左親指、外側から：レイヤー3・Command・Enter
 - 右親指、内側から：Space・レイヤー1・レイヤー2
 - 左ノブ：音量、右ノブ：スクロール
-- Studio解除：右ノブを押しながら左上のTab
+- Studio解除：右ノブを押しながら左上のEsc
 
 `config/cornix.keymap` を編集してビルド後、**左の `cornix_left_standalone.uf2` だけ**を書き換えます。通常の配列変更では右側の再書き込みや設定リセットは不要です。
 
