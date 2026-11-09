@@ -157,8 +157,9 @@
             display-name = "Bluetooth";
 
             // 右ノブを押しながら左上のEscでStudioのロックを解除する。
+            // その右隣（Q）で、選択中のBluetoothプロファイルの登録を消す。
             bindings = <
-                &studio_unlock       &none                &none                &none                &none                &none                   &none                &none                &none                &none                &none                &none
+                &studio_unlock       &bt BT_CLR           &none                &none                &none                &none                   &none                &none                &none                &none                &none                &none
                 &bt BT_SEL 0         &none                &none                &none                &none                &none                   &none                &none                &none                &none                &none                &none
                 &bt BT_SEL 1         &none                &none                &none                &none                &none                &kp C_MUTE              &mkp MCLK            &none                &none                &none                &none                &none                &none
                 &bt BT_SEL 2         &none                &none                &none                &none                &none                   &none                &none                &none                &none                &none                &none

@@ -53,6 +53,7 @@ Cornixはno-SoftDevice配置（アプリ開始 `0x1000`）です。これらのU
 - 左親指、外側から：レイヤー3・Command・Enter
 - 右親指、内側から：Space・レイヤー1・レイヤー2
 - 左ノブ：音量、右ノブ：スクロール
+- Bluetooth：右ノブを押しながら左端のControl・Shift・最下段でプロファイル0–2、Qで選択中プロファイルの登録を消去
 - Studio解除：右ノブを押しながら左上のEsc
 
 `config/cornix.keymap` を編集してビルド後、**左の `cornix_left_standalone.uf2` だけ**を書き換えます。通常の配列変更では右側の再書き込みや設定リセットは不要です。
