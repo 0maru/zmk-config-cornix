@@ -1,18 +1,26 @@
 name: Build ZMK firmware
 
+# mainへのpushでは常にビルドする。
+# PRでは `build` ラベルが付いているときだけビルドし、付けた時点と以降のpushで動く。
 on:
   push:
     branches: [main]
   pull_request:
+    types: [labeled, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
   contents: read
 
-concurrency:
-  group: firmware-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   build:
+    # ラベル付けイベントは `build` ラベルのときだけ、それ以外のPRイベントは `build` ラベルが付いているときだけ通す。
+    if: >-
+      github.event_name != 'pull_request' ||
+      (github.event.action == 'labeled' && github.event.label.name == 'build') ||
+      (github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'build'))
+    # スキップされたジョブで実行中のビルドが取り消されないよう、ジョブ単位で排他する。
+    concurrency:
+      group: firmware-${{ github.ref }}
+      cancel-in-progress: true
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@5b51501fead672c41b5cfb396f3dafe0894bf4e9
