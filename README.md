@@ -10,7 +10,7 @@ Cornix右 ── Bluetooth ── Cornix左 ── USB / Bluetooth ── PC
 
 ## ファームウェア
 
-GitHub Actionsの **Build ZMK firmware** がmainへのpushと手動実行でビルドします。PRでは `build` ラベルを付けたときだけビルドし、ラベルが付いている間は以降のpushでも再ビルドします。成功した実行の **firmware** アーティファクトをダウンロードしてください。
+GitHub Actionsの「Build ZMK firmware」がmainへのpushと手動実行でファームウェアをビルドします。PRでは `build` ラベルを付けたときだけビルドし、ラベルが付いている間は以降のpushでも再ビルドします。成功した実行の「firmware」アーティファクトをダウンロードしてください。
 
 | ファイル | 書き込む機器 |
 | --- | --- |
@@ -18,7 +18,7 @@ GitHub Actionsの **Build ZMK firmware** がmainへのpushと手動実行でビ�
 | `cornix_right_peripheral.uf2` | Cornix右：左側へキー・ノブ操作を送信 |
 | `cornix_settings_reset.uf2` | Cornix左右の設定リセット用（共通・通常更新では使用しない） |
 
-依存するZMK・Cornix v3.0.0と再利用workflowは、コミットを固定しています。Cornix v3.0.0に不足するZMK対応フラグは、修飾付きCornixターゲットかつNVS使用時に限って補っています。
+依存するZMK・Cornix v3.0.0と再利用workflowは、コミットを固定しています。Cornix v3.0.0に不足するZMK対応フラグは、修飾付きCornixターゲットで、かつNVSを使うときに限って補っています。
 
 ## 既存の左親機構成から更新
 
@@ -56,7 +56,7 @@ Cornixはno-SoftDevice配置（アプリ開始 `0x1000`）です。これらのU
 - Bluetooth：右ノブを押しながら左端のControl・Shift・最下段でプロファイル0–2、Qで選択中プロファイルの登録を消去
 - Studio解除：右ノブを押しながら左上のEsc
 
-`config/cornix.keymap` を編集してビルド後、**左の `cornix_left_standalone.uf2` だけ**を書き換えます。通常の配列変更では右側の再書き込みや設定リセットは不要です。
+`config/cornix.keymap` を編集してビルドしたあと、**左の `cornix_left_standalone.uf2` だけ**を書き換えます。通常の配列変更では右側の再書き込みや設定リセットは不要です。
 
 ZMK Studioを使う場合はCornix左側をUSB接続します。`config/cornix_left_standalone.conf` でStudioのロックと右側の電池残量取得を設定しています。
 
@@ -74,4 +74,4 @@ ISOを選ぶと、macOSは `GRAVE` と `NON_US_BSLH` の2つを入れ替えて�
 - [ZMK：左右の接続と親機の役割](https://zmk.dev/docs/features/split-keyboards)
 - [ZMK：ペアリングのリセット](https://zmk.dev/docs/troubleshooting/connection-issues)
 
-キーマップはCornixモジュールのMITライセンスの標準キーマップを元に、保存済みVial設定を移植しています。
+キーマップはCornixモジュールのMITライセンスの標準キーマップを元に、保存済みVial設定を移植したものです。
