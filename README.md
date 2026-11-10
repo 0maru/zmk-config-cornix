@@ -10,7 +10,7 @@ Cornix右 ── Bluetooth ── Cornix左 ── USB / Bluetooth ── PC
 
 ## ファームウェア
 
-GitHub Actionsの **Build ZMK firmware** がPR・mainへのpush・手動実行でビルドします。成功した実行の **firmware** アーティファクトをダウンロードしてください。
+GitHub Actionsの **Build ZMK firmware** がmainへのpushと手動実行でビルドします。PRでは `build` ラベルを付けたときだけビルドし、ラベルが付いている間は以降のpushでも再ビルドします。成功した実行の **firmware** アーティファクトをダウンロードしてください。
 
 | ファイル | 書き込む機器 |
 | --- | --- |
