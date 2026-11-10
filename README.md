@@ -60,6 +60,14 @@ Cornixはno-SoftDevice配置（アプリ開始 `0x1000`）です。これらのU
 
 ZMK Studioを使う場合はCornix左側をUSB接続します。`config/cornix_left_standalone.conf` でStudioのロックと右側の電池残量取得を設定しています。
 
+## macOSのキーボードの種類
+
+キーマップはUS配列のキーコードで書いているので、macOSの「キーボードの種類」にはANSIを選びます。
+
+ISOを選ぶと、macOSは `GRAVE` と `NON_US_BSLH` の2つを入れ替えて扱います。その結果、レイヤー1の右上（Tabの位置）とその下（Backspaceの位置）は、`` ` `` と `~` ではなく `§` と `±` になります。
+
+種類はシステム設定の「キーボード」にある「キーボードの種類を変更」から選び直せます。
+
 ## 参照元
 
 - [Cornix](https://github.com/hitsmaxft/zmk-keyboard-cornix)
